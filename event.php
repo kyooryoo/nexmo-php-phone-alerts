@@ -7,13 +7,13 @@ $request = json_decode(file_get_contents('php://input'), true);
 if (isset($request['status'])) {
     switch ($request['status']) {
     case 'ringing':
-        record_steps("UUID: {$request['conversation_uuid']} - ringing.");
+        record_steps("To: {$request['to']} - UUID: {$request['conversation_uuid']} - ringing.");
         break;
     case 'answered':
-        record_steps("UUID: {$request['conversation_uuid']} - was answered.");
+        record_steps("To: {$request['to']} - UUID: {$request['conversation_uuid']} - was answered.");
         break;
     case 'machine':
-        record_steps("UUID: {$request['conversation_uuid']} - answering machine.");
+        record_steps("To: {$request['to']} - UUID: {$request['conversation_uuid']} - answering machine.");
         break;
     case 'complete':
         // If you set eventUrl in your NCCO. The recording download URL
@@ -23,7 +23,7 @@ if (isset($request['status'])) {
         // Make a GET request to this URL using JWT authentication to download
         // the recording. For more information, see
         // https://developer.nexmo.com/voice/voice-api/guides/record-calls-and-conversations
-        record_steps("UUID: {$request['conversation_uuid']} - complete.");
+        record_steps("To: {$request['to']} - UUID: {$request['conversation_uuid']} - complete.");
         break;
     default:
         break;

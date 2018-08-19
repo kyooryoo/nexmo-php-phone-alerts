@@ -22,8 +22,13 @@ $ncco = [
         "voiceName" => "Jennifer",
         "text" => "Hello, here is your message. I hope you have a nice day."
     ],
-    // We skip the stream action here as we don't provide an MP3 for people
-    // to test with
+    [   // an optional stream section to play pre-record message
+        "action" => "stream",
+        // adjust the volume level between -1 and 1 in increments of 0.1
+        "level" => "-0.4",
+        // replace the mp3 sample with anything you wish
+        "streamUrl" => ["http://www.noiseaddicts.com/samples_1w72b820/29.mp3"]
+    ],
     [
         "action" => "talk",
         "voiceName" => "Jennifer",

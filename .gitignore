@@ -1,3 +1,5 @@
 call_log.txt
 private.key
-vendor
+vendor/
+
+config.php
